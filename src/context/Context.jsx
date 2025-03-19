@@ -1,14 +1,13 @@
 /* eslint-disable react/prop-types */
 import { createContext } from "react";
+// eslint-disable-next-line no-unused-vars
 import run from "../config/gemini";
 
 export const Context = createContext();
 
 const ContextProvider = (props) => {
 
-    const onSent = async (prompt) => {
-        run(prompt)
-    }
+
 
     const contextvalue = {
 

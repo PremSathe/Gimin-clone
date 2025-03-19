@@ -1,11 +1,5 @@
-const {
-  GoogleGenerativeAI,
-  // eslint-disable-next-line no-unused-vars
-  HarmCategory,
-  // eslint-disable-next-line no-undef
-} = require("@google/generative-ai");
-
-const API_KEY = "AIzaSyDrML7qE8OP4lYU04qsbOCKIIj19555vX0";
+import { GoogleGenerativeAI } from "@google/generative-ai";
+const API_KEY = "AIzaSyAvjyj7FFC2qC9TlYzxITgBTdH4MUM2Y68";
 const genAI = new GoogleGenerativeAI(API_KEY);
 
 const model = genAI.getGenerativeModel({
@@ -20,15 +14,17 @@ const generationConfig = {
   responseMimeType: "text/plain",
 };
 
-async function run(prompt) {
+async function run() {
   const chatSession = model.startChat({
     generationConfig,
     history: [],
   });
 
-  const result = await chatSession.sendMessage(prompt);
-  const response = result.response;
-  console.log(response.text());
+  // const result = await chatSession?.sendMessage(prompt);
+  // const response = result.response;
+  // console.log(response.text());
+
+  console.log("chat session:", chatSession, "prompt:", prompt);
 }
 
-export default run
+export default run();
